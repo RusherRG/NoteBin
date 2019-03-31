@@ -19,5 +19,5 @@ from django.conf.urls import url,include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^notebin/',include('webapp.urls'))
+    url(r'^',include('webapp.urls'))
 ]

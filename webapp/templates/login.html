@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Login</title>
+	<link href="https://fonts.googleapis.com/css?family=Nunito:600" rel="stylesheet"> 
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'styles/login.css' %}">
+</head>
+<body>
+	<main>
+	<div class="login-holder">
+		<div class="container">
+			<div class="login">
+				<h1 class=hide >
+					<div class="form-holder">
+						<div class="header">
+							<a class="header-item activated" href="#login" id="login-caller">Login</a>					
+						</div>
+						<form action="/submit">
+							<div class="form activated" id="login" >
+								<div class="input-row">
+									<input class="input" id="user" type="text" name="username" required>
+									<label class="label">Username</label>
+									<span class="highlite"></span>
+									<span class="bar"></span>
+								</div>
+								<div class="input-row">
+									<input class="input" id="pass" type="text" name="password" required>
+									<label class="label">Password</label>
+									<span class="highlite"></span>
+									<span class="bar"></span>
+								</div>
+								<div>
+									<input class="check-input" type="checkbox" id="login-checkbox" />
+									<label for="login-checkbox">Remember me</label>
+								</div>
+							</div>
+						</div>
+						<div class="sub-button" >
+							<input class="button"  type="submit" value="Submit">
+						</div>
+						</form>
+				</div>
+		</div>
+	</div>
+	</main>
+</body>
+</html>

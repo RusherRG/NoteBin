@@ -7,24 +7,28 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/base.css' %}">
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    <div class="container">
-        <div class="header clearfix">
-            <nav>
-            <ul class="nav nav-pills pull-right">
-                <li role="presentation"><a href="/notebin">Home</a></li>
-                <li role="presentation"><a href="/about">About</a></li>
-                <li role="presentation"><a href="/admin">Admin</a></li>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo right">Logo</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="/">Home</a></li>
+                <li><a href="/notes/">New</a></li>
+                <li><a href="/admin/">Admin</a></li>
+                <li><a href="/login">{{login_status}}</a></li>
             </ul>
-            </nav>
         </div>
-        {% block body %}
-        {% endblock %}
-        <footer class="footer">
-            <p>© 2019 Django AC Project</p>
-        </footer>
-        </div>
+    </nav>
+    {% block body %}
+    {% endblock %}
+    <footer class="footer">
+        <p>© 2019 Django AC Project</p>
+    </footer>
+    
+
 </body>
 </html>
