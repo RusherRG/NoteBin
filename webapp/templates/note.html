@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title%}
+    NoteBin
+{% endblock %}
+{% block body %}
+    <div class="jumbotron">
+        <h3>{{note.name}}</h3>
+    </div>
+    <textarea id="notearea" class="materialize-textarea" onkeyup="change()" placeholder="NotePad">
+        {{note.note}}
+    </textarea> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+    {% load static %}
+    <script src="{% static 'js/new_note.js' %}"></script>
+{% endblock %}

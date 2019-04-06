@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'styles/base.css' %}">
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}Notebin{% endblock %}</title>
 </head>
 <body>
     <nav>
@@ -17,9 +17,9 @@
             <a href="#" class="brand-logo right">Logo</a>
             <ul id="nav-mobile" class="left hide-on-med-and-down">
                 <li><a href="/">Home</a></li>
-                <li><a href="/notes/">New</a></li>
+                <li><a href="/new_note/">New</a></li>
                 <li><a href="/admin/">Admin</a></li>
-                <li><a href="/login">{{login_status}}</a></li>
+                <li><a href="/login">{{username}}</a></li>
             </ul>
         </div>
     </nav>

@@ -1,10 +1,86 @@
 {% extends "base.html" %}
-{% block title%}
+{%block title%}
     NoteBin
-{% endblock %}
+{%endblock%}
 {% block body %}
+
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+   {% load static %} 
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/login.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    {% load static %}
+  <script src="{% static 'js/index.js' %}"></script>  
+</head>
     <div class="jumbotron">
         <h1>Django Is Awesome</h1>
         <p class="lead">This is NoteBin!</p>
     </div>
+
+{% for note in notes %}
+    {% if username == note.user%}
+    <div class="container">
+            
+                <div class="col l4" data-toggle="modal" >
+                <div class="card purple darken-2 hoverable">
+                    <div class="card-content white-text">
+                    <span class="card-title">{{note.name}}</span>
+                    </div>
+                    <span>{{note.user}}</span>
+                    <div class="card-action">
+                        <a class="btn orange" href="{{note.name}}">Edit</a>
+                        <a class="btn orange modal-trigger" href="#{{note.name}}">View</a>
+                        <div id="{{note.name}}" class="modal">
+                            <div class="modal-content">
+                            <h4>{{note.name}}</h4>
+                            <p>{{note.note}}</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="/" class="modal-close btn orange">Close</a>
+                            </div>
+                        </div>
+                
+                    </div>
+                </div>
+                </div>
+        </div>
+    {% else %}
+        <div class=container>
+            <div class="col l4"  data-toggle="modal" >
+            <div class="card teal lighten-1 hoverable">
+                <div class="card-content black-text">
+                <span class="card-title">{{note.name}}</span>
+                </div>
+                <span>{{note.user}}</span>
+                <div class="card-action">
+                    <a class="btn orange" href="{{note.name}}">Edit</a>
+                    <a class="btn orange modal-trigger" href="#{{note.name}}">View</a>
+                    <div id="{{note.name}}" class="modal">
+                        <div class="modal-content">
+                        <h4>{{note.name}}</h4>
+                        <p>{{note.note}}</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="/" class="modal-close btn orange">Close</a>
+                        </div>
+                    </div>
+            
+                </div>
+            </div>
+            </div>
+        </div>
+   
+    {% endif %}
+{% endfor %}
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+        
 {% endblock %}
+
+{% for note in notes %}
+    {{note.name}}
+    {{note.note}}
+    {{note.time_modified}}
+{% endfor %}

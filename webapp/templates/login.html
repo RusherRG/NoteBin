@@ -1,50 +1,74 @@
+<html>
 
-<!DOCTYPE html>
-<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Login</title>
-	<link href="https://fonts.googleapis.com/css?family=Nunito:600" rel="stylesheet"> 
-	{% load static %}
-	<link rel="stylesheet" href="{% static 'styles/login.css' %}">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+ {% load static %} 
+  <link rel="stylesheet" type="text/css" href="{% static 'styles/login.css' %}">
 </head>
+
 <body>
-	<main>
-	<div class="login-holder">
-		<div class="container">
-			<div class="login">
-				<h1 class=hide >
-					<div class="form-holder">
-						<div class="header">
-							<a class="header-item activated" href="#login" id="login-caller">Login</a>					
-						</div>
-						<form action="/submit">
-							<div class="form activated" id="login" >
-								<div class="input-row">
-									<input class="input" id="user" type="text" name="username" required>
-									<label class="label">Username</label>
-									<span class="highlite"></span>
-									<span class="bar"></span>
-								</div>
-								<div class="input-row">
-									<input class="input" id="pass" type="text" name="password" required>
-									<label class="label">Password</label>
-									<span class="highlite"></span>
-									<span class="bar"></span>
-								</div>
-								<div>
-									<input class="check-input" type="checkbox" id="login-checkbox" />
-									<label for="login-checkbox">Remember me</label>
-								</div>
-							</div>
-						</div>
-						<div class="sub-button" >
-							<input class="button"  type="submit" value="Submit">
-						</div>
-						</form>
+  <div class="section"></div>
+  <main>
+    <center>
+      <img class="responsive-img" style="width: 250px;" src="{% static 'assests/Notebin.gif' %}" />
+      <div class="section"></div>
+
+      <h5 class="indigo-text">{{verify}}</h5>
+      <div class="section"></div>
+
+      <div class="container">
+        <div class="z-depth-1 grey lighten-4 row" style="display: inline-block; padding: 32px 48px 0px 48px; border: 1px solid #EEE;">
+
+          <form class="col s12" method="post">
+			{% csrf_token %}
+            <div class='row'>
+              <div class='col s12'>
+              </div>
+			</div>
+			<!-- <div class='row'>
+				<div class='input-field col s12'>
+				  <input class='validate' type='text' name='username' id='username' />
+				  <label for='email'>Username</label>
 				</div>
-		</div>
-	</div>
-	</main>
+			</div> -->
+            <div class='row'>
+              <div class='input-field col s12'>
+                <input class='validate' type='email' name='email' id='email' />
+                <label for='email'>Email</label>
+              </div>
+            </div>
+
+            <div class='row'>
+              <div class='input-field col s12'>
+                <input class='validate' type='password' name='password' id='password' />
+                <label for='password'>Password</label>
+              </div>
+              <label style='float: right;'>
+								<a class='pink-text' href='#!'><b>Forgot Password?</b></a>
+							</label>
+            </div>
+
+            <br />
+            <center>
+              <div class='row'>
+                <button type='submit' name='btn_login' class='col s12 btn btn-large waves-effect indigo'>Login</button>
+              </div>
+            </center>
+          </form>
+        </div>
+      </div>
+      <a href="#!">Create account</a>
+    </center>
+
+    <div class="section"></div>
+    <div class="section"></div>
+  </main>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+  {% load static %}  
+ <script type="text/javascript" src="{% static 'js/login.js' %}"></script>
 </body>
+
 </html>
