@@ -3,12 +3,14 @@
     NoteBin
 {% endblock %}
 {% block body %}
-    <div class="jumbotron">
-        <h3>New Note</h3>
+    <div class="container">
+            <h6>Notebin</h6>
+            <i class="material-icons right" id="share-btn">share</i>
+            <i class="material-icons right" id="save-btn">save</i>
     </div>
-    <textarea id="notearea" class="materialize-textarea" onkeyup="change()" placeholder="NotePad">
-        
-    </textarea> 
+    <!-- <textarea id="notearea" class="materialize-textarea" onkeyup="change()" placeholder="NotePad"> -->
+        <textarea name="notearea" id="notearea" cols="80" rows="50"></textarea>
+    <!-- </textarea>            -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
     {% load static %}

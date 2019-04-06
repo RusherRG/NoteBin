@@ -1,0 +1,33 @@
+.nav-wrapper{
+    background-color: #0d47a1 !important;
+}
+
+#new_note_label{
+    margin-top: 30px;
+    margin-left: 30px;
+    width: 30%;
+    font-family: cursive;
+    font-size: 30px;
+}
+
+#add-note{
+    margin-bottom:5px;
+    margin-top: 5px;
+    margin-right: 5%;
+}
+
+#notearea{
+    margin-top: 50px;
+    width: 80%;
+    margin-left: 5%;
+    margin-right:5%;
+    height: 400px;
+    border-radius: 5px;
+}
+
+#save-btn{
+    margin-right: 1%;
+}
+#share-btn{
+    margin-right: 15%;
+}

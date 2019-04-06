@@ -17,6 +17,9 @@
         <h1>Django Is Awesome</h1>
         <p class="lead">This is NoteBin!</p>
     </div>
+    <div class="container" id="new_note_label">
+            <div class="card-panel blue lighten-4"><i class="small material-icons" id="add-note">add_box</i>Take a new note</div>
+    </div>
 
 {% for note in notes %}
     {% if username == note.user%}
