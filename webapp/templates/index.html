@@ -5,9 +5,9 @@
 {% block body %}
 
 <head>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    
    {% load static %} 
+<<<<<<< HEAD
     <link rel="stylesheet" type="text/css" href="{% static 'styles/index.css' %}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     {% load static %}
@@ -23,6 +23,21 @@
 
           <div class=split-left>
                 <div class="col s4 pull-s4 " data-toggle="modal" >
+=======
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/index.css' %}">
+    
+</head>
+    <div class="container" id="new_note_label">
+            <div class="card-panel blue lighten-4"><i class="small material-icons" id="add-note">add_box</i>Take a new note</div>
+    </div>
+
+<div class="container">
+<div class="row split left">
+{% for note in user_notes %}
+       
+            <div class="col s6" data-toggle="modal" >
+>>>>>>> 592e29c77fc6fd720bc6b5efeaa4cbcb4235329d
                 <div class="card purple darken-2 hoverable">
                     <div class="card-content white-text">
                     <span class="card-title">{{note.name}}</span>
@@ -32,25 +47,25 @@
                         <a class="btn-floating btn-large waves-effect waves-light orange" href="{{note.name}}"><i class="material-icons">edit</i></a>
                         <a class="btn-floating btn-large waves-effect waves-light orange modal-trigger" href="#{{note.name}}"><i class="material-icons">visibility</i></a>
                         <a class="btn-floating btn-large waves-effect waves-light red" href="delete_note/{{note.name}}"><i class="material-icons">delete</i></a>
-                        <div id="{{note.name}}" class="modal">
-                            <div class="modal-content">
-                            <h4>{{note.name}}</h4>
-                            <p>{{note.note|linebreaks}}</p>
-                            </div>
-                            <div class="modal-footer">
-                                <a class="modal-close btn-floating btn-large waves-effect waves-light red"><i class="material-icons">close</i></a>
-                            </div>
-                        </div>
-                
+                       
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
           </div>
         {% endfor %}
         
         {% for note in notes %}
           <div class=split right>
             <div class="col s4  "  data-toggle="modal" >
+=======
+        
+        {%endfor%}
+    </div>
+    <div class="row split right">
+    {% for note in public_notes %}
+        <div class="col s6"  data-toggle="modal" >
+>>>>>>> 592e29c77fc6fd720bc6b5efeaa4cbcb4235329d
             <div class="card teal lighten-1 hoverable">
                 <div class="card-content black-text">
                 <span class="card-title">{{note.name}}</span>
@@ -62,7 +77,7 @@
                     <div id="{{note.name}}" class="modal">
                         <div class="modal-content">
                         <h4>{{note.name}}</h4>
-                        <p>{{note.note|linebreaks}}</p>
+                        <pre class="prettyprint">{{note.note|linebreaks}}</pre>
                         </div>
                         <div class="modal-footer">
                             <a class="modal-close btn-floating btn-large waves-effect waves-light red"><i class="material-icons">close</i></a>
@@ -72,6 +87,7 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
     </div>
    
    
@@ -81,10 +97,31 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
         
+=======
+{% endfor %}
+</div>
+</div>
+{%for note in notes%}
+<div id="{{note.name}}" class="modal">
+        <div class="modal-content">
+        <h4>{{note.name}}</h4>
+        <pre class='prettyprint'>{{note.note|linebreaks}}</pre>
+        </div>
+        <div class="modal-footer">
+            <a class="modal-close btn-floating btn-large waves-effect waves-light red"><i class="material-icons">close</i></a>
+        </div>
+    </div>
+{% endfor %}
+>>>>>>> 592e29c77fc6fd720bc6b5efeaa4cbcb4235329d
 {% endblock %}
 
+{% block footer %}
+{% load static %}
+<script src="{% static 'js/index.js' %}"></script>
+{% endblock %}
+<!-- 
 {% for note in notes %}
     {{note.name}}
     {{note.note}}
     {{note.time_modified}}
-{% endfor %}
+{% endfor %} -->

@@ -1,4 +1,4 @@
-.nav-wrapper{
+ .nav-wrapper{
     background-color: #0d47a1 !important;
 }
 
@@ -10,21 +10,27 @@
     font-size: 30px;
 }
 
+#nav-mobile{
+    background-color: #0d47a1 !important;
+}
+
 #add-note{
     margin-bottom:5px;
     margin-top: 5px;
     margin-right: 5%;
 }
 
+#notearea-con{
+margin-left: 60px;
+}
+
 textarea{
-    width: 1000px !important;
-    margin-left: 5%;
-    margin-right:5%;
-    height: 500px !important;
     border-radius: 5px;
 }
 #notearea{
-    margin-top: 30px;
+    margin-top: 30px;    
+    width: 120% !important;
+    height: 500px !important;
 }
 
 #save-btn{
@@ -38,4 +44,10 @@ h5{
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-style: initial;
     margin-bottom: -5px;
+}
+
+#charcount{
+    width:25%;
+    border-radius:5px;
+    box-shadow: 5px 5px 10px;
 }

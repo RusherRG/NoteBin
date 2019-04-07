@@ -4,7 +4,7 @@
 {% endblock %}
 {% block body %}
 
-    <div class="container">
+    <div class="container" id="notearea-con">
             <div class="container" id="fab">
     
                     <div class="fixed-action-btn">
@@ -12,21 +12,19 @@
                               <i class="large material-icons">mode_edit</i>
                             </a>
                             <ul>
-                              <li><a class="btn-floating red" href="new_note/"><i class="material-icons">add</i></a></li>
+                              <li><a class="btn-floating blue" href="new_note/"><i class="material-icons">add</i></a></li>
                               <li><a class="btn-floating yellow darken-1" onclick="share();"><i class="material-icons">share</i></a></li>
                               <li><a class="btn-floating green" onclick="save();"><i class="material-icons">save</i></a></li>
-                              <li><a class="btn-floating blue"><i class="material-icons" href="delete_note/{{note.name}}">delete</i></a></li>
+                              <li><a class="btn-floating red"><i class="material-icons" href="delete_note/{{note.name}}">delete</i></a></li>
                             </ul>
                     </div>
-                <!--   <i class="material-icons right" id="open-new-tab" onclick="open_new_tab()">add</i>
-                    <i class="material-icons right" id="share-btn" onclick="share_note();">share</i>
-                    <i class="material-icons right" id="save-btn">save</i> -->
             </div>
-    <!-- <textarea id="notearea" class="materialize-textarea" onkeyup="change()" placeholder="NotePad"> -->
         <h5>{{note.name}}</h5>
-        <textarea name="notearea" id="notearea"></textarea>
-    <!-- </textarea>            -->
+        <textarea name="notearea" id="notearea" onkeyup="change()" onkeydown="character_count()">{{note.note}}</textarea>
     </div>
+    <center>
+      <div class="card-panel teal lighten-2" id="charcount">Characters: 0 <br> Words: 0</div>
+    </center>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

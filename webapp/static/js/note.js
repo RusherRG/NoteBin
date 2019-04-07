@@ -18,4 +18,14 @@ function share(){
     console.log("Share");
 }
 
+function character_count(){
+    var content = document.getElementById('notearea');
+    // console.log(content.value.length);
+    var nword=content.value.split(" "); //HAHA 
+    // console.log(nword);
+    str="Characters: " + content.value.length + "<br>" + "Words: " + nword.length;
+    document.getElementById("charcount").innerHTML= str;
+}
+
 $('.fixed-action-btn').floatingActionButton();
+
