@@ -7,7 +7,6 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'styles/base.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/themes/prism.min.css"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
     <title>{% block title %}Notebin{% endblock %}</title>
@@ -16,7 +15,7 @@
 
     <nav>
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo right">Logo</a>
+            <!-- <a href="#" class="brand-logo right"><img class="responsive-img" style="width: 250px;" src="{% static 'assests/Notebin.gif' %}" /></a> -->
             <ul id="nav-mobile" class="left hide-on-med-and-down">
                 <li><a href="/">Home</a></li>
                 <li><a href="/new_note/">New</a></li>
@@ -33,6 +32,13 @@
         <p>© 2019 Django AC Project</p>
     </footer>
      -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+{% block footer %}
+{% endblock %}
 </body>
 </html>

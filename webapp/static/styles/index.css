@@ -1,0 +1,27 @@
+.split {
+    margin-top: 10%;
+    height:80%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  /* Control the left side */
+.left {
+    left: 0;
+    background-color: white;
+}
+  
+  /* Control the right side */
+.right {
+    right: 0;
+    background-color: white;
+}
+
+.modal
+{
+    height: 50%!important;
+}   

@@ -4,6 +4,7 @@ from datetime import datetime
 from django.http import JsonResponse, HttpResponse
 import random
 import string
+from pprint import pprint
 s = string.ascii_letters
 # Create your views here.
 def home(request):
@@ -14,12 +15,20 @@ def home(request):
         context = {'username':'public'}
         request.session['name'] = 'public'
     notes = fetch_notes()
+    context['user_notes'] = []
+    context['public_notes'] = []
+    for note in notes:
+        if note['user']==context['username']:
+            context['user_notes'].append(note)
+        else:
+            context['public_notes'].append(note)
     context['notes'] = notes
+    pprint(context)
     return render(request, 'index.html',context)
 
 def login(request):
     if request.method=='GET':
-        return render(request, 'login.html',context)
+        return render(request, 'login.html')
     else:
         email = request.POST.get('email',None)
         password = request.POST.get('password',None)
