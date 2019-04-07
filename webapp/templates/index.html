@@ -7,29 +7,12 @@
 <head>
     
    {% load static %} 
-<<<<<<< HEAD
-    <link rel="stylesheet" type="text/css" href="{% static 'styles/index.css' %}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    {% load static %}
-  <script src="{% static 'js/index.js' %}"></script>  
-</head>
-    <div class="jumbotron">
-    </div>
-    <div class="container" id="new_note_label">
-            <div class="card-panel blue lighten-4"><i class="small material-icons" id="add-note">add_box</i>Take a new note</div>
-    </div>
-    <div class="row">
-{% for note in notes %}
-
-          <div class=split-left>
-                <div class="col s4 pull-s4 " data-toggle="modal" >
-=======
     <link rel="stylesheet" type="text/css" href="{% static 'styles/base.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'styles/index.css' %}">
     
 </head>
     <div class="container" id="new_note_label">
-            <div class="card-panel blue lighten-4"><i class="small material-icons" id="add-note">add_box</i>Take a new note</div>
+            <div class="card-panel blue lighten-4"><a href="/new_note/"><i class="small material-icons" id="add-note">create</i>Take a new note<a></div>
     </div>
 
 <div class="container">
@@ -37,7 +20,6 @@
 {% for note in user_notes %}
        
             <div class="col s6" data-toggle="modal" >
->>>>>>> 592e29c77fc6fd720bc6b5efeaa4cbcb4235329d
                 <div class="card purple darken-2 hoverable">
                     <div class="card-content white-text">
                     <span class="card-title">{{note.name}}</span>
@@ -51,21 +33,12 @@
                     </div>
                 </div>
             </div>
-<<<<<<< HEAD
-          </div>
-        {% endfor %}
-        
-        {% for note in notes %}
-          <div class=split right>
-            <div class="col s4  "  data-toggle="modal" >
-=======
         
         {%endfor%}
     </div>
     <div class="row split right">
     {% for note in public_notes %}
         <div class="col s6"  data-toggle="modal" >
->>>>>>> 592e29c77fc6fd720bc6b5efeaa4cbcb4235329d
             <div class="card teal lighten-1 hoverable">
                 <div class="card-content black-text">
                 <span class="card-title">{{note.name}}</span>
@@ -87,17 +60,6 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-    </div>
-   
-   
-{% endfor %}
-</div>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-
-        
-=======
 {% endfor %}
 </div>
 </div>
@@ -112,7 +74,6 @@
         </div>
     </div>
 {% endfor %}
->>>>>>> 592e29c77fc6fd720bc6b5efeaa4cbcb4235329d
 {% endblock %}
 
 {% block footer %}
