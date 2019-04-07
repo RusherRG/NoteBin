@@ -9,10 +9,14 @@ s = string.ascii_letters
 # Create your views here.
 def home(request):
     #populate()
+    search("Feature")
     try:
-        context = {'username':request.session['name']}
+        if request.session['name']:
+            context = {'username':request.session['name'], 'login_status':0}
+        else:
+            context = {'username':'public','login_status':1}
     except:
-        context = {'username':'public'}
+        context = {'username':'public','login_status':1}
         request.session['name'] = 'public'
     notes = fetch_notes()
     context['user_notes'] = []
@@ -23,7 +27,7 @@ def home(request):
         else:
             context['public_notes'].append(note)
     context['notes'] = notes
-    pprint(context)
+    #pprint(context)
     return render(request, 'index.html',context)
 
 def login(request):
@@ -46,7 +50,13 @@ def login(request):
                 request.session['name'] = email
                 return redirect(home)
             else:
-                return JsonResponse({"status":"failed"})
+                return render(request, 'login.html',context={'verify':'Wrong Password :/'})
+
+def logout(request):
+    if request.method=='GET':
+        request.session['name'] = ''
+        return redirect(home)
+
 
 def fetch_notes():
     notes = Note.objects.all()
@@ -57,7 +67,7 @@ def fetch_notes():
         NOTE['name'] = note.name
         NOTE['note'] = note.note
         NOTE['time_modified'] = note.time_modified
-        print(note.user)
+        #print(note.user)
         NOTES.append(NOTE)
     NOTES = sorted(NOTES, key=lambda x: x['time_modified'], reverse=True)
     return NOTES
@@ -100,14 +110,11 @@ def populate():
         note.time_modified = datetime.now()
         note.save()
 
-
-
 def signup(request):
     user = User()
     user.email = ""
     user.password = "" 
     user.save()
-
 
 def new_note(request):
     return redirect('/'+''.join([random.choice(s) for i in range(10)]))
@@ -116,11 +123,22 @@ def note(request, name):
     note = Note.objects.filter(name = name)
     if note.count():
         context = {'note': note[0]}
-        if note[0].user=='Public' or note[0].user.find(request.session['name']) != -1:
+        if note[0].user=='Public' or note[0].user==request.session['name']:
             return render(request, "note.html", context)
         else:
-            return render(request,'',context)
+            return redirect(home)
     else:
         context = {'note': {'name':name}}
         return render(request, 'note.html', context)
     
+def search(text):
+    stext=".*"+text+".*"
+    print(stext)
+    x = Note.objects.filter(note__iregex=stext)
+    for i in x:
+        print(i.__dict__)   
+    print("Here", x, type(x))
+    for i in x:
+        print(x)
+    return HttpResponse("Done")
+

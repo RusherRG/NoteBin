@@ -19,11 +19,11 @@
                             </ul>
                     </div>
             </div>
-        <h5>{{note.name}}</h5>
+        <div class="red-text"><h5>{{note.name}}</h5></div>
         <textarea name="notearea" id="notearea" onkeyup="change()" onkeydown="character_count()">{{note.note}}</textarea>
     </div>
     <center>
-      <div class="card-panel teal lighten-2" id="charcount">Characters: 0 <br> Words: 0</div>
+      <div class="card-panel pink darken-4 white-text" id="charcount">Characters: 0 <br> Words: 0</div>
     </center>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>

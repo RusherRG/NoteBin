@@ -19,8 +19,13 @@
             <ul id="nav-mobile" class="left hide-on-med-and-down">
                 <li><a href="/">Home</a></li>
                 <!-- <li><a href="/new_note/">New</a></li> -->
-                <li><a href="/admin/">Admin</a></li>
-                <li><a href="/login/">{{username}}</a></li>
+                <!-- <li><a href="/admin/">Admin</a></li> -->
+                <li>{{username}}</li>
+                {% if login_status %}
+                <li><a href="/login/">Login</a></li>
+                {% else %}
+                <li><a href="/logout/">Logout</a></li>
+                {% endif %}
             </ul>
         </div>
     </nav>

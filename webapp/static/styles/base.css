@@ -1,5 +1,5 @@
  .nav-wrapper{
-    background-color: #0d47a1 !important;
+    background-color:#880e4f  !important;
 }
 
 #new_note_label{
@@ -11,7 +11,7 @@
 }
 
 #nav-mobile{
-    background-color: #0d47a1 !important;
+    background-color:#880e4f  !important;
 }
 
 #add-note{
@@ -25,12 +25,13 @@ margin-left: 60px;
 }
 
 textarea{
-    border-radius: 5px;
-}
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 18pt !important; 
+} 
 #notearea{
     margin-top: 30px;    
-    width: 120% !important;
-    height: 500px !important;
+    width: 140% !important;
+    height: 650px !important;
 }
 
 #save-btn{

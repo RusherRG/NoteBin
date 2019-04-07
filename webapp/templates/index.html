@@ -12,15 +12,16 @@
     
 </head>
     <div class="container" id="new_note_label">
-            <div class="card-panel blue lighten-4"><a href="/new_note/"><i class="small material-icons" id="add-note">create</i>Take a new note<a></div>
+            <a href="/new_note/"><div class="card-panel blue lighten-4"><i class="small material-icons" id="add-note">create</i>Take a new note</div><a>
     </div>
 
 <div class="container">
+{% if user_notes %}
 <div class="row split left">
 {% for note in user_notes %}
        
             <div class="col s6" data-toggle="modal" >
-                <div class="card purple darken-2 hoverable">
+                <div class="card  purple darken-2 hoverable">
                     <div class="card-content white-text">
                     <span class="card-title">{{note.name}}</span>
                     </div>
@@ -39,8 +40,8 @@
     <div class="row split right">
     {% for note in public_notes %}
         <div class="col s6"  data-toggle="modal" >
-            <div class="card teal lighten-1 hoverable">
-                <div class="card-content black-text">
+            <div class="card deep-purple darken-4 hoverable">
+                <div class="card-content white-text">
                 <span class="card-title">{{note.name}}</span>
                 </div>
                 <div class="card-content white-text">{{note.user}}</div>
@@ -62,6 +63,34 @@
         </div>
 {% endfor %}
 </div>
+{% else %}
+<div class="row">
+        {% for note in public_notes %}
+        <div class="col s4"  data-toggle="modal" >
+            <div class="card deep-purple darken-4 hoverable">
+                <div class="card-content white-text">
+                <span class="card-title">{{note.name}}</span>
+                </div>
+                <div class="card-content white-text">{{note.user}}</div>
+                <div class="card-action">
+                    <a class="btn-floating btn-large waves-effect waves-light orange" href="{{note.name}}"><i class="material-icons">edit</i></a>
+                    <a class="btn-floating btn-large waves-effect waves-light orange modal-trigger" href="#{{note.name}}"><i class="material-icons">visibility</i></a>
+                    <div id="{{note.name}}" class="modal">
+                        <div class="modal-content">
+                        <h4>{{note.name}}</h4>
+                        <pre class="prettyprint">{{note.note|linebreaks}}</pre>
+                        </div>
+                        <div class="modal-footer">
+                            <a class="modal-close btn-floating btn-large waves-effect waves-light red"><i class="material-icons">close</i></a>
+                        </div>
+                    </div>
+            
+                </div>
+            </div>
+        </div>
+{% endfor %}
+</div>
+{% endif %}
 </div>
 {%for note in notes%}
 <div id="{{note.name}}" class="modal">
