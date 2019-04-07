@@ -33,3 +33,9 @@ textarea{
 #share-btn{
     margin-right: 15%;
 }
+
+h5{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: initial;
+    margin-bottom: -5px;
+}
