@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from .models import Note, User
 from datetime import datetime
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 import random
 import string
 s = string.ascii_letters
@@ -28,10 +28,8 @@ def login(request):
             user.email = email
             user.password = password
             user.save()
-            request.session['name'] = email
-            return redirect(home)
-        context = {'verify':'Email already used'}
-        return render(request, 'login.html', context)
+        request.session['name'] = email
+        return redirect(home)
 
 def fetch_notes():
     notes = Note.objects.all()
@@ -47,14 +45,33 @@ def fetch_notes():
     NOTES = sorted(NOTES, key=lambda x: x['time_modified'], reverse=True)
     return NOTES
 
-def add_note(request):
-    note = Note()
-    note.user = request.session['name']
-    note.name = request.POST.get("name",None)
-    note.note = request.POST.get("note",None)
-    note.time_modified = datetime.now()
-    note.save()
-    return 
+def delete_note(request,name):
+    if request.method=='GET':
+        print('deleting')
+        Note.objects.filter(name=name).delete()
+        print('deleted')
+    return redirect(home) 
+
+def save_note(request):
+    if request.method=='GET':
+        user = request.session['name']
+        name = request.GET.get("name",None)
+        note = request.GET.get("note",None)
+        time_modified = datetime.now()
+        NOTE = Note.objects.filter(name = name, user = user)
+        if not NOTE:
+            print("create and save")
+            NOTE = Note()
+            NOTE.user = user
+            NOTE.name = name
+            NOTE.note = note
+            NOTE.time_modified = datetime.now()
+            NOTE.save()
+        else:
+            print("saving")
+            NOTE.update(note = note, time_modified = time_modified)
+        print("Saved")
+        return JsonResponse({'status':'success'})
 
 def populate():
     user = "Public"
@@ -76,15 +93,17 @@ def signup(request):
 
 
 def new_note(request):
-    return render(request, "new_note.html")
+    return redirect('/'+''.join([random.choice(s) for i in range(10)]))
 
 def note(request, name):
-    print(request, name)
     note = Note.objects.filter(name = name)
-    print(note)
     if note.count():
         context = {'note': note[0]}
-        return render(request, "note.html", context)
+        if note[0].user=='Public' or note[0].user.find(request.session['name']) != -1:
+            return render(request, "note.html", context)
+        else:
+            return render(request,'',context)
     else:
-        context = {'note': ''}
+        context = {'note': {'name':name}}
         return render(request, 'note.html', context)
+    

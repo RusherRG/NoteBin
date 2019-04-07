@@ -8,5 +8,6 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('<str:name>', views.note, name='note'),
     path('new_note/', views.new_note, name='new note'),
-    path('add_note/',views.add_note, name='note adder')
+    path('save_note/',views.save_note, name='note saver'),
+    path('delete_note/<str:name>',views.delete_note, name='delete note'),
 ]
