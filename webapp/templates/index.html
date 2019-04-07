@@ -30,17 +30,18 @@
                     <div class="card-content white-text">
                     <span class="card-title">{{note.name}}</span>
                     </div>
-                    <span>{{note.user}}</span>
+                    <div class="card-content white-text">{{note.user}}</div>
                     <div class="card-action">
-                        <a class="btn orange" href="{{note.name}}">Edit</a>
-                        <a class="btn orange modal-trigger" href="#{{note.name}}">View</a>
+                        <a class="btn-floating btn-large waves-effect waves-light orange" href="{{note.name}}"><i class="material-icons">edit</i></a>
+                        <a class="btn-floating btn-large waves-effect waves-light orange modal-trigger" href="#{{note.name}}"><i class="material-icons">visibility</i></a>
+                        <a class="btn-floating btn-large waves-effect waves-light red" href="delete_note/{{note.name}}"><i class="material-icons">delete</i></a>
                         <div id="{{note.name}}" class="modal">
                             <div class="modal-content">
                             <h4>{{note.name}}</h4>
-                            <p>{{note.note}}</p>
+                            <p>{{note.note|linebreaks}}</p>
                             </div>
                             <div class="modal-footer">
-                                <a href="/" class="modal-close btn orange">Close</a>
+                                <a class="modal-close btn-floating btn-large waves-effect waves-light red"><i class="material-icons">close</i></a>
                             </div>
                         </div>
                 
@@ -55,17 +56,17 @@
                 <div class="card-content black-text">
                 <span class="card-title">{{note.name}}</span>
                 </div>
-                <span>{{note.user}}</span>
+                <div class="card-content white-text">{{note.user}}</div>
                 <div class="card-action">
-                    <a class="btn orange" href="{{note.name}}">Edit</a>
-                    <a class="btn orange modal-trigger" href="#{{note.name}}">View</a>
+                    <a class="btn-floating btn-large waves-effect waves-light orange" href="{{note.name}}"><i class="material-icons">edit</i></a>
+                    <a class="btn-floating btn-large waves-effect waves-light orange modal-trigger" href="#{{note.name}}"><i class="material-icons">visibility</i></a>
                     <div id="{{note.name}}" class="modal">
                         <div class="modal-content">
                         <h4>{{note.name}}</h4>
-                        <p>{{note.note}}</p>
+                        <p>{{note.note|linebreaks}}</p>
                         </div>
                         <div class="modal-footer">
-                            <a href="/" class="modal-close btn orange">Close</a>
+                            <a class="modal-close btn-floating btn-large waves-effect waves-light red"><i class="material-icons">close</i></a>
                         </div>
                     </div>
             
