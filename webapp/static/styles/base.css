@@ -16,13 +16,15 @@
     margin-right: 5%;
 }
 
-#notearea{
-    margin-top: 50px;
-    width: 80%;
+textarea{
+    width: 1000px !important;
     margin-left: 5%;
     margin-right:5%;
-    height: 400px;
+    height: 500px !important;
     border-radius: 5px;
+}
+#notearea{
+    margin-top: 30px;
 }
 
 #save-btn{
