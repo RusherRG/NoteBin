@@ -3,22 +3,36 @@
     NoteBin
 {% endblock %}
 {% block body %}
+
     <div class="container">
-        <h5 id="note_name">{{note.name}}</h5>
-        <a class="btn-floating btn-large waves-effect waves-light blue" onclick="share()">
-            <i class="material-icons right" id="share-btn">share</i>
-        </a>
-        <a class="btn-floating btn-large waves-effect waves-light green" onclick="save()">
-            <i class="material-icons right" id="save-btn">save</i>
-        </a>
+            <div class="container" id="fab">
+    
+                    <div class="fixed-action-btn">
+                            <a class="btn-floating btn-large purple darken-4">
+                              <i class="large material-icons">mode_edit</i>
+                            </a>
+                            <ul>
+                              <li><a class="btn-floating red" href="new_note/"><i class="material-icons">add</i></a></li>
+                              <li><a class="btn-floating yellow darken-1" onclick="share();"><i class="material-icons">share</i></a></li>
+                              <li><a class="btn-floating green" onclick="save();"><i class="material-icons">save</i></a></li>
+                              <li><a class="btn-floating blue"><i class="material-icons" href="delete_note/{{note.name}}">delete</i></a></li>
+                            </ul>
+                    </div>
+                <!--   <i class="material-icons right" id="open-new-tab" onclick="open_new_tab()">add</i>
+                    <i class="material-icons right" id="share-btn" onclick="share_note();">share</i>
+                    <i class="material-icons right" id="save-btn">save</i> -->
+            </div>
+    <!-- <textarea id="notearea" class="materialize-textarea" onkeyup="change()" placeholder="NotePad"> -->
+        <h5>{{note.name}}</h5>
+        <textarea name="notearea" id="notearea"></textarea>
+    <!-- </textarea>            -->
     </div>
-    <textarea id="notearea" class="materialize-textarea" onkeyup="change()" placeholder="NotePad">
-        {{note.note}}
-    </textarea>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     {% load static %}
     <script src="{% static 'js/note.js' %}"></script>
+    <script src="{% static 'js/new_note.js' %}"></script>
     <script src="{% static 'js/update.js' %}"></script>
 {% endblock %}

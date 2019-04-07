@@ -17,3 +17,5 @@ function save(){
 function share(){
     console.log("Share");
 }
+
+$('.fixed-action-btn').floatingActionButton();
