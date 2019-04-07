@@ -8,7 +8,7 @@ function change(){
     }
     counter = 0;
     var note = document.getElementById('notearea').value;
-    console.log(note);
+    //console.log(note);
     var message = {
         note: note,
     }

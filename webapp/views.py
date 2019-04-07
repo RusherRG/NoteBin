@@ -32,13 +32,21 @@ def login(request):
     else:
         email = request.POST.get('email',None)
         password = request.POST.get('password',None)
-        if not User.objects.filter(email = email).count():
+        user = User.objects.filter(email = email)
+        if not user.count():
             user = User()
             user.email = email
             user.password = password
             user.save()
-        request.session['name'] = email
-        return redirect(home)
+            request.session['name'] = email
+            return redirect(home)
+        else:
+            user = user[0]
+            if user.password == password:
+                request.session['name'] = email
+                return redirect(home)
+            else:
+                return JsonResponse({"status":"failed"})
 
 def fetch_notes():
     notes = Note.objects.all()
