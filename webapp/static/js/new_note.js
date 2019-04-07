@@ -26,3 +26,13 @@ socket.on( 'response', function( msg ) {
         document.getElementById('notearea').value = msg.note;
     }
 })
+
+$('.fixed-action-btn').floatingActionButton();
+
+function open_new_tab(){
+    var url=window.location.href;
+    console.log(url);
+    var win=window.open(url,'_blank');
+    win.focus();
+}
+
