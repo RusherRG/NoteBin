@@ -14,9 +14,10 @@
     </div>
     <textarea id="notearea" class="materialize-textarea" onkeyup="change()" placeholder="NotePad">
         {{note.note}}
-    </textarea> 
+    </textarea>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.0/prism.min.js"></script>
     {% load static %}
     <script src="{% static 'js/note.js' %}"></script>
     <script src="{% static 'js/update.js' %}"></script>
