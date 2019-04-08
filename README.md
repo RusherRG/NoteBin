@@ -1,5 +1,5 @@
 <div align = "center">
-<img src="./webapp/static/assets/Notebin.gif" width=200px/>
+<img src="./webapp/static/assests/Notebin.gif" width=200px/>
  </div>
 <div align="center">
 
@@ -32,9 +32,11 @@
 - [x] Login and sessions
 - [x] Character and word count
 - [x] Take notes
-- [] Improve UI
-- [] Search bar
-- [] Share notes 
+- [x] Syntax highlighting
+- [ ] Improve UI
+- [ ] Search bar
+- [ ] Share notes 
+- [ ] Live syntax highlighting 
 
 
 
