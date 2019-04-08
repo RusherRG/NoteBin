@@ -1,14 +1,61 @@
-# NoteBin
-Django AC Project
+<div align = "center">
+<img src="./webapp/static/assets/Notebin.gif" width=200px/>
+ </div>
+<div align="center">
 
-## Features(to be added)
 
-[X] Login(& Sessions) Display TOAST :)
+[![made-with-python](https://forthebadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
-[X] Improve the Looks
+[![made-with-javascript](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://www.javascript.org/)
 
-[] If note already present, display TOAST :)
 
-[X] Character Count, Word Count 
+<br>
 
-[] Dynamic search
+
+
+</div>
+
+------------------------------------------
+
+> **NoteBin** provides a easy way to manage your notes. Use public notes for general use or log in for private stuff.
+
+> This project does not require any proprietary API or product. 
+
+
+</div>
+
+------------------------------------------
+
+### Features
+
+- [x] Allows you to take notes, maintain private and public notes.
+- [x] Login and sessions
+- [x] Character and word count
+- [x] Take notes
+- [] Improve UI
+- [] Search bar
+- [] Share notes 
+
+
+
+------------------------------------------
+### Contributing
+ We're are open to `enhancements` & `bug-fixes` :smile: 
+
+### Note
+
+ This project was done under `12 hours with minimal pre-preparation`
+
+
+------------------------------------------
+### Contributors
+
+
+- [@Rusherrg](https://github.com/RusherRG)
+- [@hetzz](https://github.com/hetzz)
+- [@aditya1999](https://github.com/aditya1999)
+
+
+------------------------------------------
+
+This repository / project was a part of the django audit course in college.
