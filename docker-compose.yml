@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  notebin:
+    build: .
+    container_name: notebin
+    volumes:
+      - .:/notebin
+    ports:
+      - "8000:8000"
+  notebin_socket:
+    build: ./Flask/
+    container_name: notebin_socket
+    ports: 
+      - "5000:5000"
