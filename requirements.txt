@@ -4,10 +4,8 @@ async-timeout==2.0.1
 attrs==19.1.0
 autobahn==19.3.3
 Automat==0.7.0
-channels==0.17.3
 constantly==15.1.0
-daphne==0.15.0
-Django==1.10.4
+Django==2.0.2
 hyperlink==18.0.0
 idna==2.8
 incremental==17.5.0
