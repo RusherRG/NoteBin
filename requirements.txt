@@ -5,7 +5,7 @@ attrs==19.1.0
 autobahn==19.3.3
 Automat==0.7.0
 constantly==15.1.0
-Django==2.0.2
+Django==2.2.10
 hyperlink==18.0.0
 idna==2.8
 incremental==17.5.0
